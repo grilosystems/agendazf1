@@ -1,0 +1,42 @@
+<br /><br />
+<div id="view-content">
+    <p><a href="<?php echo $this->url(
+            array(
+                'controller' => 'contacto',
+                'action' => 'sign'
+            ),
+            'default',
+            true) ?>">Ingrese contacto</a></p>
+    
+    <div class="col-md-12">
+        
+        <table class="table table-hover">
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Celular</th>
+            <?php foreach ($this->entries as $entry): ?>
+            <tr>
+                <td>
+                    <?php echo $this->escape($entry->idContac) ?>
+                </td>
+                <td>
+                    <?php echo $this->escape($entry->nombre) ?>
+                </td>
+                <td>
+                    <?php echo $this->escape($entry->direccion) ?>
+                </td>
+                <td>
+                    <?php echo $this->escape($entry->telefono) ?>
+                </td>
+                <td>
+                    <?php echo $this->escape($entry->email) ?>
+                </td>
+            </tr>
+            <?php endforeach ?>
+        </table>
+        
+    </div>
+    
+</div>

@@ -1,0 +1,44 @@
+https://framework.zend.com/manual/1.10/en/learning.quickstart.create-layout.html
+https://framework.zend.com/downloads/archives
+https://github.com/
+https://puspabangun.wordpress.com/2011/04/13/solving-zend-framework-error-%E2%80%9Can-error-has-occurred-a-project-profile-was-not-found%E2%80%9D/
+
+Adaptador MySQL
+http://stackoverflow.com/questions/12071284/how-to-integrate-mysql-with-zend-framework
+
+Ejecución de un SP
+http://zend-framework-community.634137.n4.nabble.com/Complex-UPDATE-statement-Best-method-td3347426.html
+
+Bootstrap
+http://getbootstrap.com/javascript/#modals
+
+Bootstrap Tables
+http://getbootstrap.com/css/#tables-contextual-classes
+
+Crear Proyecto
+    % zf create project <nombreProyecto>
+
+Creacion de Layout
+    % zf enable layout
+
+Cracion de Adaptador para Base de Datos
+    % zf configure db-adapter
+        Adaptador de MySQL
+            zf configure db-adapter "adapter=PDO_MYSQL&dbname=[your databasename]&host=[your host]&username=[your username]&password=[your password]" -s <Ambiente>
+
+        Forma Manual
+            resources.db.adapter = "PDO_MYSQL"
+            resources.db.params.dbname = "[your database]"
+            resources.db.params.host = "[your host]"
+            resources.db.params.username = "[your username]"
+            resources.db.params.password = "[your password]"
+
+Crear Zend_Db_Table
+    % zf create db-table <NombreDeClase> <tablaEnBD>
+
+Crear Controlador
+    % zf create controller <Controlador>
+
+Crear funcion sign Action
+    % zf create action sign <Controlador>
+    

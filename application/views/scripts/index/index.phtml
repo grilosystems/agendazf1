@@ -1,51 +1,121 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Agenda ZF1</title>
-        <style>
-            a:link,
-            a:visited
-            {
-                color: #0398CA;
-            }
 
-            span#zf-name
-            {
-                color: #91BE3F;
-            }
+<div class="container">
 
-            div#welcome
-            {
-                color: #FFFFFF;
-                background-image: url(http://framework.zend.com/images/bkg_header.jpg);
-                width:  600px;
-                height: 400px;
-                border: 2px solid #444444;
-                overflow: hidden;
-                text-align: center;
-            }
-
-            div#more-information
-            {
-                background-image: url(http://framework.zend.com/images/bkg_body-bottom.gif);
-                height: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="welcome">
-            <h1>Bienvenido a <span id="zf-name">Zend Framework!</span></h1>
-
-            <h3>Está es la página de inicio</h3>
-
-            <div id="more-information">
-                <p><img src="http://framework.zend.com/images/PoweredBy_ZF_4LightBG.png" /></p>
-                <p>
-                    Helpful Links: <br />
-                    <a href="http://framework.zend.com/">Zend Framework Website</a> |
-                    <a href="http://framework.zend.com/manual/en/">Zend Framework Manual</a>
-                </p>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Opciones de Agenda</h2>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-sm-6">
+        <div class="panel panel-default text-center">
+            <div class="panel-heading">
+                <span class="fa-stack fa-5x">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
+                </span>
+            </div>
+            <div class="panel-body">
+                <h4>Agregar Contacto</h4>
+                <p>Agrega un nuevo contacto a la agenda.</p>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    Agregar
+                </button>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+    
+    <div class="col-md-6 col-sm-6">
+        <div class="panel panel-default text-center">
+            <div class="panel-heading">
+                <span class="fa-stack fa-5x">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
+                </span>
+            </div>
+            <div class="panel-body">
+                <h4>Manual de Usuario</h4>
+                <p>Tutorial para el usuario.</p>
+                <button type="button" class="btn btn-primary btn-lg">
+                    Manual
+                </button>
+            </div>
+        </div>
+    </div>
+ 
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Interesse &copy; Agenda Test 2017</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Formulario de Contacto</h4>
+          </div>
+          <div class="modal-body">
+            <!-- Contact Form -->
+            <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+            <div class="row">
+                <div class="col-md-8">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Nombre Completo:</label>
+                                <input type="text" class="form-control" id="name" required data-validation-required-message="Por favor escriba su nombre.">
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Dirección:</label>
+                                <input type="tel" class="form-control" id="name" required data-validation-required-message="Por favor indique su dirección.">
+                            </div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Email:</label>
+                                <input type="email" class="form-control" id="email" required data-validation-required-message="Por favor indique su E-Mail.">
+                            </div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Teléfono:</label>
+                                <input type="tel" class="form-control" id="phone" required data-validation-required-message="Por favor indique su teléfono.">
+                            </div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Celular:</label>
+                                <input type="tel" class="form-control" id="phone" required data-validation-required-message="Por favor indique su celular.">
+                            </div>
+                        </div>
+                        <div id="success"></div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- /.row -->
+          </div>
+        </div>
+      </div>
+    </div>
+        
+</div>
+
+    <!-- jQuery -->
+    <?php echo $this->headScript()->appendFile('/js/jquery.js') ?>
+
+    <!-- Bootstrap Core JavaScript -->
+    <?php echo $this->headScript()->appendFile('/js/bootstrap.min.js') ?>
+    
+    <!-- Bootstrap Core Validators -->
+    <?php echo $this->headScript()->appendFile('js/jqBootstrapValidation.js') ?>
+    <?php echo $this->headScript()->appendFile('js/contact_me.js') ?>
