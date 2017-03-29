@@ -1,0 +1,29 @@
+El Test se desarrollo con el siguiente ambiente
+
+Servidor: XAMPP 5.6.23-0
+ID: NetBeans 8.1
+Framework: ZendFramework 1.x
+Bootstrap 2
+MySQL
+
+Configuración del server dentro de XAMPP
+Se agrego el VirtualHost virtual hasta el final del archivo de configuración
+
+<VirtualHost *:80>
+	ServerName agendazf1.local
+	DocumentRoot /Applications/XAMPP/xamppfiles/htdocs/agendazf1/public
+
+	SetEnv APPLICATION_ENV "development"
+     
+	<Directory /Applications/XAMPP/xamppfiles/htdocs/agendazf1/public>
+		DirectoryIndex index.php
+		AllowOverride All
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>
+
+Configuración de BD
+Ejecutar los siguientes scripts en el orden mostrado a continuación:
+    1. agendaDB.sql
+    2. sp_altaContacto.sql

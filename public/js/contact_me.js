@@ -1,10 +1,9 @@
 /*
   Jquery Validation using jqBootstrapValidation
-   example is taken from jqBootstrapValidation docs 
   */
 $(function() {
 
-    $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
+    $("#contactForm input").jqBootstrapValidation({
         preventSubmit: true,
         submitError: function($form, event, errors) {
             // something to have when submit produces an error ?
@@ -13,44 +12,48 @@ $(function() {
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
-            var name = $("input#name").val();
-            var phone = $("input#phone").val();
+            var nombre = $("input#nombre").val();
+            var direccion = $("input#direccion").val();
             var email = $("input#email").val();
-            var message = $("textarea#message").val();
-            var firstName = name; // For Success/Failure Message
+            var phone = $("input#phone").val();
+            var celPhone = $("input#celPhone").val();
+            
+            var datos= "nombre="+nombre+"&dir="+direccion+"&tel="+phone+"&cel="+celPhone+"&email="+email;
+            
+            var firstName = nombre; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
+            
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "./bin/contact_me.php",
+                url: "http://agendazf1.local/contacto/test/",
+                dataType: 'html',
+                async: true,
                 type: "POST",
-                data: {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    message: message
-                },
+                contentType: 'application/x-www-form-urlencoded',
+                data: datos,
                 cache: false,
-                success: function() {
+                success: function(response) {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong>Your message has been sent. </strong>");
+                        .append("<strong>Se guardo el contacto en la agenda. </strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
                     //clear all fields
                     $('#contactForm').trigger("reset");
+                    //alert(response);
                 },
                 error: function() {
                     // Fail message
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + " it seems that my mail server is not responding...</strong> Could you please email me directly to <a href='mailto:me@example.com?Subject=Message_Me from myprogrammingblog.com;>me@example.com</a> ? Sorry for the inconvenience!");
+                    $('#success > .alert-danger').append("<strong>Disculpe, el contacto " + firstName + " no fue guardado debido a problemas con el servidor...</strong> Intente más tarde.");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");

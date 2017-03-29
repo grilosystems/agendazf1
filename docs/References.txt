@@ -15,6 +15,9 @@ http://getbootstrap.com/javascript/#modals
 Bootstrap Tables
 http://getbootstrap.com/css/#tables-contextual-classes
 
+Zend JSON
+https://framework.zend.com/manual/1.10/en/zend.controller.actionhelpers.html
+
 Crear Proyecto
     % zf create project <nombreProyecto>
 

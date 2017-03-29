@@ -1,5 +1,8 @@
 <?php
 
+//Charset de la pagina
+header('Content-type: text/html; charset=utf-8');
+
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));

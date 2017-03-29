@@ -12,7 +12,7 @@
             <div class="panel-heading">
                 <span class="fa-stack fa-5x">
                       <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
+                      <i class="fa fa-book fa-stack-1x fa-inverse"></i>
                 </span>
             </div>
             <div class="panel-body">
@@ -30,14 +30,14 @@
             <div class="panel-heading">
                 <span class="fa-stack fa-5x">
                       <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
+                      <i class="fa fa-list fa-stack-1x fa-inverse"></i>
                 </span>
             </div>
             <div class="panel-body">
-                <h4>Manual de Usuario</h4>
-                <p>Tutorial para el usuario.</p>
-                <button type="button" class="btn btn-primary btn-lg">
-                    Manual
+                <h4>Listar Contactos</h4>
+                <p>Lista los contactos existentes.</p>
+                <button type="button" id="buttonListContac" class="btn btn-primary btn-lg">
+                    Listar
                 </button>
             </div>
         </div>
@@ -68,14 +68,14 @@
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Nombre Completo:</label>
-                                <input type="text" class="form-control" id="name" required data-validation-required-message="Por favor escriba su nombre.">
+                                <input type="text" class="form-control" id="nombre" required data-validation-required-message="Por favor escriba su nombre.">
                                 <p class="help-block"></p>
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Dirección:</label>
-                                <input type="tel" class="form-control" id="name" required data-validation-required-message="Por favor indique su dirección.">
+                                <input type="tel" class="form-control" id="direccion" required data-validation-required-message="Por favor indique su dirección.">
                             </div>
                         </div>
                         <div class="control-group form-group">
@@ -93,12 +93,12 @@
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Celular:</label>
-                                <input type="tel" class="form-control" id="phone" required data-validation-required-message="Por favor indique su celular.">
+                                <input type="tel" class="form-control" id="celPhone" required data-validation-required-message="Por favor indique su celular.">
                             </div>
                         </div>
                         <div id="success"></div>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" id="buttonContactSave" class="btn btn-primary">Guardar</button>
                     </form>
                 </div>
             </div>
@@ -107,7 +107,7 @@
         </div>
       </div>
     </div>
-        
+    
 </div>
 
     <!-- jQuery -->
@@ -119,3 +119,37 @@
     <!-- Bootstrap Core Validators -->
     <?php echo $this->headScript()->appendFile('js/jqBootstrapValidation.js') ?>
     <?php echo $this->headScript()->appendFile('js/contact_me.js') ?>
+
+    <script type="text/javascript">
+    /*    
+    $('#buttonContactSave').click(function (){
+            
+            var nombre = $('#nombre').val();
+            var direccion = $('#direccion').val();
+            var telefono = $('#phone').val();
+            var celular = $('#celPhone').val();
+            var email = $('#email').val();
+            
+            datos= "nombre="+nombre+"&dir="+direccion+"&tel="+telefono+"&cel="+celular+"&email="+email;
+            
+            $.ajax({
+                    type: 'POST',
+                    dataType: 'html',
+                    contentType: "application/x-www-form-urlencoded",
+                    url: 'http://agendazf1.local/contacto/test',
+                    async: false,
+                    data: datos,
+                    success: function(data) {
+                        alert("Contacto Guardado" + data);
+                    },
+                    error:function() {
+			alert("Problemas en el servidor, intente más tarde.");
+                    }
+            });
+            return false;
+        });
+        */
+        $('#buttonListContac').click(function(){
+            window.location.replace("/contacto");
+        })
+    </script>
